@@ -11,7 +11,6 @@ export const CustomHeader = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   // Segmentos de ruta obligatorio
   const { gender } = useParams();
-  console.log(gender);
 
   const newSearchParams = new URLSearchParams();
 
@@ -49,10 +48,10 @@ export const CustomHeader = () => {
               All products
             </Link>
             <Link
-              to="/gender/man"
+              to="/gender/men"
               className={cn(
                 `text-sm font-medium transition-colors hover:text-primary`,
-                gender === "man" ? "underline underline-offset-4" : "",
+                gender === "men" ? "underline underline-offset-4" : "",
               )}
             >
               Mens
