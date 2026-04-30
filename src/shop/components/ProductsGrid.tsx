@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, Filter, Grid, List } from "lucide-react";
+import { Filter, Grid, List } from "lucide-react";
 import { FilterSidebar } from "./FilterSidebar";
 import { ProductCard } from "./ProductCard";
 import { useSearchParams } from "react-router";

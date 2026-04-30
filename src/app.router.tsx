@@ -3,7 +3,7 @@ import { createBrowserRouter, Navigate } from "react-router";
 
 import { ShopLayout } from "./shop/layout/ShopLayout";
 import { HomePage } from "./shop/pages/home/HomePage";
-import { ProductPage } from "./shop/pages/product/ProductPage";
+import { ProductPage } from "./shop/pages/product/ProdcutPage";
 import { GenderPage } from "./shop/pages/gender/GenderPage";
 import { LoginPage } from "./auth/pages/login/LoginPage";
 import { RegisterPage } from "./auth/pages/register/RegisterPage";
