@@ -1,11 +1,15 @@
-import { Search, } from "lucide-react";
+import { Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {  useRef,  type KeyboardEvent } from "react";
+import { useRef, type KeyboardEvent } from "react";
 import { Link, useParams, useSearchParams } from "react-router";
 import { cn } from "@/lib/utils";
 import { CustomLogo } from "@/components/custom/CustomLogo";
+import { useAuthStore } from "@/auth/store/auth.store";
 export const CustomHeader = () => {
+
+  const { authStatus,isAdmin, logout } = useAuthStore();
+
 
   // Paramstros opcionales
   const [searchParams, setSearchParams] = useSearchParams();
@@ -35,7 +39,7 @@ export const CustomHeader = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-         <CustomLogo/>
+          <CustomLogo />
           {/* Navigation - Desktop */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link
@@ -95,17 +99,30 @@ export const CustomHeader = () => {
               <Search className="h-5 w-5" />
             </Button>
 
-            <Link to={"/auth/login"}>
-              <Button variant={"default"} size="sm" className="ml-2" >
-                Login
+            { authStatus === 'not-authenticated' ? (
+              <Link to={"/auth/login"}>
+                <Button variant={"default"} size="sm" className="ml-2">
+                  Login
+                </Button>
+              </Link>
+            ) : (
+              <Button
+                variant={"outline"}
+                onClick={logout}
+                size="sm"
+                className="ml-2"
+              >
+                Log out
               </Button>
-            </Link>
+            )}
 
-            <Link to={"/admin"}>
-              <Button variant={"destructive"} size="sm" className="ml-2" >
-                Admin
-              </Button>
-            </Link>
+            { isAdmin() && (
+              <Link to={"/admin"}>
+                <Button variant={"destructive"} size="sm" className="ml-2">
+                  Admin
+                </Button>
+              </Link>
+            )}
           </div>
         </div>
       </div>

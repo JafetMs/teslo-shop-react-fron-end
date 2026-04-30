@@ -1,4 +1,3 @@
-import { QueryClient } from '@tanstack/react-query';
 import { useQuery } from '@tanstack/react-query';
 import { useParams, useSearchParams } from 'react-router';
 
